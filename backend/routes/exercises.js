@@ -1,3 +1,4 @@
+// @ts-nocheck
 const router = require('express').Router();
 let Exercise = require('../models/exercise.model');
 
@@ -35,7 +36,7 @@ router
       .catch(err => res.status(400).json(err.response))
   })
 
-  .put('/update/:id', (req, res) => {
+  .post('/update/:id', (req, res) => {
     Exercise.findById(req.params.id)
       .then(exercise => {
         exercise.username = req.body.username;

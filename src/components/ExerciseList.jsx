@@ -24,7 +24,8 @@ const ExerciseList = () => {
       })
       .catch((err) => {
         console.log(err.response);
-      })
+      });
+    return () => { }
   }, [])
 
   const deleteExercise = (id) => {

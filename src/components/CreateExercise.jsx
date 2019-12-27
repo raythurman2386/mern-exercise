@@ -53,9 +53,7 @@ const CreateExercise = (props) => {
     console.log(exercise);
 
     axios.post('http://localhost:4000/exercises/add', exercise)
-      .then(res => console.log(res.data));
-
-    props.history.push('/')
+      .then(res => props.history.push('/'));
   }
 
   return (

@@ -49,14 +49,14 @@ const addExercise = async (req, res) => {
 }
 
 const updateExercise = async (req, res) => {
-  try {
-    const exercise = await Exercise.findById(req.params.id);
-    exercise.username = req.body.username;
-    exercise.description = req.body.description;
-    exercise.reps = req.body.reps;
-    exercise.sets = req.body.sets;
-    exercise.date = Date.parse(req.body.date);
+  const exercise = await Exercise.findById(req.params.id);
+  exercise.username = req.body.username;
+  exercise.description = req.body.description;
+  exercise.reps = req.body.reps;
+  exercise.sets = req.body.sets;
+  exercise.date = Date.parse(req.body.date);
 
+  try {
     await exercise.save()
     return res.status(200).json('Exercise Updated!')
   } catch (error) {

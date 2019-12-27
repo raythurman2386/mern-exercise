@@ -25,7 +25,8 @@ router
     const user = {
       username: req.body.username,
       description: req.body.description,
-      duration: req.body.duration,
+      reps: req.body.reps,
+      sets: req.body.sets,
       date: Date.parse(req.body.date)
     }
 
@@ -41,7 +42,8 @@ router
       .then(exercise => {
         exercise.username = req.body.username;
         exercise.description = req.body.description;
-        exercise.duration = req.body.duration;
+        exercise.reps = req.body.reps;
+        exercise.sets = req.body.sets;
         exercise.date = Date.parse(req.body.date);
 
         exercise.save()

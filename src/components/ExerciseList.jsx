@@ -6,7 +6,8 @@ const Exercise = props => (
   <tr>
     <td>{props.exercise.username}</td>
     <td>{props.exercise.description}</td>
-    <td>{props.exercise.duration}</td>
+    <td>{props.exercise.reps}</td>
+    <td>{props.exercise.sets}</td>
     <td>{props.exercise.date.substring(0, 10)}</td>
     <td>
       <Link to={"/edit/" + props.exercise._id}>edit</Link> | <button onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</button>
@@ -50,7 +51,8 @@ const ExerciseList = () => {
           <tr>
             <th>Username</th>
             <th>Description</th>
-            <th>Duration</th>
+            <th>Reps</th>
+            <th>Sets</th>
             <th>Date</th>
             <th>Actions</th>
           </tr>

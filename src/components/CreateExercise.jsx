@@ -24,22 +24,6 @@ const CreateExercise = (props) => {
 
   })
 
-  const onChangeUsername = (e) => {
-    setUsername(e.target.value);
-  }
-
-  const onChangeDescription = (e) => {
-    setDescription(e.target.value)
-  }
-
-  const onChangeDuration = (e) => {
-    setDuration(e.target.value)
-  }
-
-  const onChangeDate = (date) => {
-    setDate(date)
-  }
-
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -49,8 +33,6 @@ const CreateExercise = (props) => {
       duration,
       date
     }
-
-    console.log(exercise);
 
     axios.post('http://localhost:4000/exercises/add', exercise)
       .then(res => props.history.push('/'));
@@ -66,7 +48,7 @@ const CreateExercise = (props) => {
             required
             className="form-control"
             value={username}
-            onChange={e => onChangeUsername(e)}>
+            onChange={e => setUsername(e.target.value)}>
             {
               users.map((user) => {
                 return <option
@@ -83,7 +65,7 @@ const CreateExercise = (props) => {
             required
             className="form-control"
             value={description}
-            onChange={e => onChangeDescription(e)}
+            onChange={e => setDescription(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -92,7 +74,7 @@ const CreateExercise = (props) => {
             type="text"
             className="form-control"
             value={duration}
-            onChange={e => onChangeDuration(e)}
+            onChange={e => setDuration(e.target.value)}
           />
         </div>
         <div className="form-group">
@@ -100,7 +82,7 @@ const CreateExercise = (props) => {
           <div>
             <DatePicker
               selected={date}
-              onChange={onChangeDate}
+              onChange={date => setDate(date)}
             />
           </div>
         </div>

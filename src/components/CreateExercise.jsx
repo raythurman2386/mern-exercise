@@ -21,8 +21,7 @@ const CreateExercise = (props) => {
       .catch((error) => {
         console.log(error);
       })
-
-  })
+  }, [])
 
   const onSubmit = (e) => {
     e.preventDefault();

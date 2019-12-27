@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import DatePicker from 'react-datepicker';
@@ -6,7 +7,8 @@ import "react-datepicker/dist/react-datepicker.css";
 const CreateExercise = (props) => {
   const [username, setUsername] = useState('')
   const [description, setDescription] = useState('')
-  const [duration, setDuration] = useState(0)
+  const [reps, setReps] = useState(0)
+  const [sets, setSets] = useState(0)
   const [date, setDate] = useState(new Date())
   const [users, setUsers] = useState([])
 
@@ -29,7 +31,8 @@ const CreateExercise = (props) => {
     const exercise = {
       username,
       description,
-      duration,
+      reps,
+      sets,
       date
     }
 
@@ -68,12 +71,21 @@ const CreateExercise = (props) => {
           />
         </div>
         <div className="form-group">
-          <label>Duration (in minutes): </label>
+          <label>Reps: </label>
           <input
             type="text"
             className="form-control"
-            value={duration}
-            onChange={e => setDuration(e.target.value)}
+            value={reps}
+            onChange={e => setReps(e.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <label>Sets: </label>
+          <input
+            type="text"
+            className="form-control"
+            value={sets}
+            onChange={e => setSets(e.target.value)}
           />
         </div>
         <div className="form-group">

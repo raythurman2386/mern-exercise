@@ -7,7 +7,7 @@ const CreateUser = (props) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    axios.post('http://localhost:4000/users/add', { username })
+    axios.post('https://lift-track-mern.herokuapp.com/users/add', { username })
       .then(res => console.log(res.data));
 
     setUsername('');

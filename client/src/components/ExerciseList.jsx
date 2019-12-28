@@ -19,7 +19,7 @@ const ExerciseList = () => {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    axios.get('http://localhost:4000/exercises/')
+    axios.get('https://lift-track-mern.herokuapp.com/exercises/')
       .then(res => {
         setExercises(res.data)
       })
@@ -30,7 +30,7 @@ const ExerciseList = () => {
   }, [])
 
   const deleteExercise = (id) => {
-    axios.delete('http://localhost:4000/exercises/' + id)
+    axios.delete(`https://lift-track-mern.herokuapp.com/exercises/${id}`)
       .then(response => { console.log(response.data) });
 
     setExercises(exercises.filter(el => el._id !== id))

@@ -13,7 +13,7 @@ const CreateExercise = (props) => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    axios.get('http://localhost:4000/users/')
+    axios.get('https://lift-track-mern.herokuapp.com/users/')
       .then(response => {
         if (response.data.length > 0) {
           setUsers(response.data.map(user => user.username))
@@ -36,7 +36,7 @@ const CreateExercise = (props) => {
       date
     }
 
-    axios.post('http://localhost:4000/exercises/add', exercise)
+    axios.post('https://lift-track-mern.herokuapp.com/exercises/add', exercise)
       .then(res => props.history.push('/'));
   }
 

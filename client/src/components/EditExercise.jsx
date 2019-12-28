@@ -13,7 +13,7 @@ const EditExercise = (props) => {
   const [users, setUsers] = useState([])
 
   useEffect(() => {
-    axios.get(`http://localhost:4000/exercises/${props.match.params.id}`)
+    axios.get(`https://lift-track-mern.herokuapp.com/exercises/${props.match.params.id}`)
       .then(response => {
         setUsername(response.data.username)
         setDescription(response.data.description)
@@ -25,7 +25,7 @@ const EditExercise = (props) => {
         console.log(error);
       })
 
-    axios.get('http://localhost:4000/users/')
+    axios.get('https://lift-track-mern.herokuapp.com/users/')
       .then(response => {
         if (response.data.length > 0) {
           setUsers(response.data.map(user => user.username))
@@ -47,7 +47,7 @@ const EditExercise = (props) => {
       date
     }
 
-    axios.post(`http://localhost:4000/exercises/update/${props.match.params.id}`, exercise)
+    axios.post(`https://lift-track-mern.herokuapp.com/exercises/update/${props.match.params.id}`, exercise)
       .then(res => props.history.push('/'));
   }
 

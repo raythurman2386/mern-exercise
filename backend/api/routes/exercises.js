@@ -1,6 +1,6 @@
 // @ts-nocheck
 const router = require('express').Router();
-let Exercise = require('../models/exercise.model');
+let Exercise = require('../../models/exercise.model');
 
 const getAllExercises = async (req, res) => {
   try {

@@ -1,11 +1,10 @@
 const express = require("express");
-const cors = require("cors");
+const middleware = require('./middleware');
 const routes = require('./routes');
 
 const server = express();
 
-server.use(cors());
-server.use(express.json());
+middleware(server);
 routes(server);
 
 module.exports = server;

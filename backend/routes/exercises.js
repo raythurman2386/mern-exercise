@@ -23,7 +23,7 @@ const getExerciseById = async (req, res) => {
 const deleteExercise = async (req, res) => {
   try {
     const deleted = await Exercise.findByIdAndDelete(req.params.id);
-    return res.status(202).json(deleted, 'Exercise Deleted!')
+    return res.status(202).json('Exercise Deleted!')
   } catch (error) {
     return res.status(400).json(error.response)
   }
@@ -42,7 +42,7 @@ const addExercise = async (req, res) => {
 
   try {
     const exercise = await newExercise.save()
-    return res.status(201).json(exercise, 'Exercise Created')
+    return res.status(201).json('Exercise Created')
   } catch (error) {
     return res.status(400).json(error.response)
   }

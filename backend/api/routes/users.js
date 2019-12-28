@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const userRouter = require('express').Router();
 let User = require('../../models/user.model');
 
 const getUsers = async (req, res) => {
@@ -22,8 +22,8 @@ const addUser = async (req, res) => {
   }
 }
 
-router
+userRouter
   .get('/', getUsers)
   .post('/add', addUser)
 
-module.exports = router;
+module.exports = userRouter;

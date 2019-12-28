@@ -1,5 +1,5 @@
 // @ts-nocheck
-const router = require('express').Router();
+const exercisesRouter = require('express').Router();
 let Exercise = require('../../models/exercise.model');
 
 const getAllExercises = async (req, res) => {
@@ -64,11 +64,11 @@ const updateExercise = async (req, res) => {
   }
 }
 
-router
+exercisesRouter
   .get('/', getAllExercises)
   .get('/:id', getExerciseById)
   .delete('/:id', deleteExercise)
   .post('/add', addExercise)
   .post('/update/:id', updateExercise)
 
-module.exports = router;
+module.exports = exercisesRouter;

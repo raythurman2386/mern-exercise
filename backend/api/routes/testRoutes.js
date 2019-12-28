@@ -1,6 +1,6 @@
-const router = require("express").Router();
+const testRouter = require("express").Router();
 
-router
+testRouter
   .use('/', (req, res) => {
     res.status(200).json({ message: "Welcome to Lift Tracker" });
   })
@@ -9,4 +9,4 @@ router
   })
 
 
-module.exports = router;
+module.exports = testRouter;

@@ -1,13 +1,11 @@
 const express = require("express");
 const cors = require("cors");
+const routes = require('./routes');
+
 const server = express();
-// Routes
-const exerciseRouter = require('./routes/exercises');
-const userRouter = require('./routes/users');
 
 server.use(cors());
-server.use(express.json())
-server.use('/exercises', exerciseRouter);
-server.use('/users', userRouter)
+server.use(express.json());
+routes(server);
 
 module.exports = server;

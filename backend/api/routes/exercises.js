@@ -2,34 +2,34 @@
 const exercisesRouter = require('express').Router();
 let Exercise = require('../../models/exercise.model');
 
-const getAllExercises = async (req, res, next) => {
+const getAllExercises = async (req, res) => {
   try {
     const exercises = await Exercise.find();
     return res.status(200).json(exercises);
   } catch (error) {
-    next(error);
+    return res.status(400).json(error.response);
   }
 };
 
-const getExerciseById = async (req, res, next) => {
+const getExerciseById = async (req, res) => {
   try {
     const exercise = await Exercise.findById(req.params.id);
     return res.status(200).json(exercise);
   } catch (error) {
-    next(error);
+    return res.status(400).json(error.response);
   }
 };
 
-const deleteExercise = async (req, res, next) => {
+const deleteExercise = async (req, res) => {
   try {
     const deleted = await Exercise.findByIdAndDelete(req.params.id);
     return res.status(202).json('Exercise Deleted!');
   } catch (error) {
-    next(error);
+    return res.status(400).json(error.response);
   }
 };
 
-const addExercise = async (req, res, next) => {
+const addExercise = async (req, res) => {
   const user = {
     username: req.body.username,
     description: req.body.description,
@@ -44,11 +44,11 @@ const addExercise = async (req, res, next) => {
     const exercise = await newExercise.save();
     return res.status(201).json('Exercise Created');
   } catch (error) {
-    next(error);
+    return res.status(400).json(error.response);
   }
 };
 
-const updateExercise = async (req, res, next) => {
+const updateExercise = async (req, res) => {
   const exercise = await Exercise.findById(req.params.id);
   exercise.username = req.body.username;
   exercise.description = req.body.description;
@@ -60,7 +60,7 @@ const updateExercise = async (req, res, next) => {
     await exercise.save();
     return res.status(200).json('Exercise Updated!');
   } catch (error) {
-    next(error);
+    return res.status(400).json(error.response);
   }
 };
 

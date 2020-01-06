@@ -5,8 +5,8 @@ const userRouter = require('./users');
 const errorRoutes = require('./errors');
 
 module.exports = server => {
+  // server.use('/', testRouter);
   server.use('/exercises', exercisesRouter);
   server.use('/users', userRouter);
-  server.use('/', testRouter);
   server.use(errorRoutes);
-}
+};

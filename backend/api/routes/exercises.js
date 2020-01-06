@@ -5,29 +5,29 @@ let Exercise = require('../../models/exercise.model');
 const getAllExercises = async (req, res) => {
   try {
     const exercises = await Exercise.find();
-    return res.status(200).json(exercises)
+    return res.status(200).json(exercises);
   } catch (error) {
-    return res.status(400).json(error.response)
+    return res.status(400).json(error.response);
   }
-}
+};
 
 const getExerciseById = async (req, res) => {
   try {
     const exercise = await Exercise.findById(req.params.id);
-    return res.status(200).json(exercise)
+    return res.status(200).json(exercise);
   } catch (error) {
-    return res.status(400).json(error.response)
+    return res.status(400).json(error.response);
   }
-}
+};
 
 const deleteExercise = async (req, res) => {
   try {
     const deleted = await Exercise.findByIdAndDelete(req.params.id);
-    return res.status(202).json('Exercise Deleted!')
+    return res.status(202).json('Exercise Deleted!');
   } catch (error) {
-    return res.status(400).json(error.response)
+    return res.status(400).json(error.response);
   }
-}
+};
 
 const addExercise = async (req, res) => {
   const user = {
@@ -35,18 +35,18 @@ const addExercise = async (req, res) => {
     description: req.body.description,
     reps: req.body.reps,
     sets: req.body.sets,
-    date: Date.parse(req.body.date)
-  }
+    date: Date.parse(req.body.date),
+  };
 
-  const newExercise = new Exercise(user)
+  const newExercise = new Exercise(user);
 
   try {
-    const exercise = await newExercise.save()
-    return res.status(201).json('Exercise Created')
+    const exercise = await newExercise.save();
+    return res.status(201).json('Exercise Created');
   } catch (error) {
-    return res.status(400).json(error.response)
+    return res.status(400).json(error.response);
   }
-}
+};
 
 const updateExercise = async (req, res) => {
   const exercise = await Exercise.findById(req.params.id);
@@ -57,18 +57,18 @@ const updateExercise = async (req, res) => {
   exercise.date = Date.parse(req.body.date);
 
   try {
-    await exercise.save()
-    return res.status(200).json('Exercise Updated!')
+    await exercise.save();
+    return res.status(200).json('Exercise Updated!');
   } catch (error) {
-    return res.status(400).json(error.response)
+    return res.status(400).json(error.response);
   }
-}
+};
 
 exercisesRouter
   .get('/', getAllExercises)
   .get('/:id', getExerciseById)
   .delete('/:id', deleteExercise)
   .post('/add', addExercise)
-  .post('/update/:id', updateExercise)
+  .post('/update/:id', updateExercise);
 
 module.exports = exercisesRouter;

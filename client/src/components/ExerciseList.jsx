@@ -10,44 +10,60 @@ const Exercise = props => (
     <td>{props.exercise.sets}</td>
     <td>{props.exercise.date.substring(0, 10)}</td>
     <td>
-      <Link to={"/edit/" + props.exercise._id}>edit</Link> | <button onClick={() => { props.deleteExercise(props.exercise._id) }}>delete</button>
+      <Link to={'/edit/' + props.exercise._id}>edit</Link> |{' '}
+      <button
+        onClick={() => {
+          props.deleteExercise(props.exercise._id);
+        }}
+      >
+        delete
+      </button>
     </td>
   </tr>
-)
+);
 
 const ExerciseList = () => {
   const [exercises, setExercises] = useState([]);
 
   useEffect(() => {
-    axios.get('https://lift-track-mern.herokuapp.com/exercises/')
+    axios
+      .get('https://localhost:4000/exercises/')
       .then(res => {
-        setExercises(res.data)
+        setExercises(res.data);
       })
-      .catch((err) => {
+      .catch(err => {
         console.log(err.response);
       });
-    return () => { return }
-  }, [])
+    return () => {
+      return;
+    };
+  }, []);
 
-  const deleteExercise = (id) => {
-    axios.delete(`https://lift-track-mern.herokuapp.com/exercises/${id}`)
-      .then(response => { console.log(response.data) });
+  const deleteExercise = id => {
+    axios.delete(`https://localhost:4000/exercises/${id}`).then(response => {
+      console.log(response.data);
+    });
 
-    setExercises(exercises.filter(el => el._id !== id))
-  }
+    setExercises(exercises.filter(el => el._id !== id));
+  };
 
   const exerciseList = () => {
     return exercises.map(currentexercise => {
-      return <Exercise exercise={currentexercise} deleteExercise={deleteExercise} key={currentexercise._id} />;
-    })
-  }
-
+      return (
+        <Exercise
+          exercise={currentexercise}
+          deleteExercise={deleteExercise}
+          key={currentexercise._id}
+        />
+      );
+    });
+  };
 
   return (
     <div>
       <h3>Logged Exercises</h3>
-      <table className="table">
-        <thead className="thead-light">
+      <table className='table'>
+        <thead className='thead-light'>
           <tr>
             <th>Username</th>
             <th>Description</th>
@@ -57,13 +73,10 @@ const ExerciseList = () => {
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          {exerciseList()}
-        </tbody>
+        <tbody>{exerciseList()}</tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-
-export default ExerciseList
+export default ExerciseList;

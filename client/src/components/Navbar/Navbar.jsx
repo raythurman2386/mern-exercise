@@ -5,33 +5,33 @@ const Navbar = () => {
 	const loggedIn = localStorage.getItem('token');
 
 	return (
-		<nav className='navbar navbar-dark bg-dark navbar-expand-lg'>
-			<Link to='/' className='navbar-brand'>
+		<nav className='bg-gray-800 text-gray-300 flex py-4 px-2 justify-between'>
+			<Link to='/' className='cursor-pointer'>
 				Lift Tracker
 			</Link>
-			<div className='collpase navbar-collapse'>
-				<ul className='navbar-nav ml-auto'>
-					<li className='navbar-item'>
+			<div>
+				<ul className='flex'>
+					<li className='cursor-pointer'>
 						<Link to='/exercises' className='nav-link'>
 							Exercises
 						</Link>
 					</li>
 					{!loggedIn && (
-						<li className='navbar-item'>
+						<li className='ml-2 cursor-pointer'>
 							<Link to='/signup' className='nav-link'>
 								Sign Up
 							</Link>
 						</li>
 					)}
 					{!loggedIn && (
-						<li className='navbar-item'>
+						<li className='ml-2 cursor-pointer'>
 							<Link to='/login' className='nav-link'>
 								Login
 							</Link>
 						</li>
 					)}
 					{loggedIn && (
-						<li className='navbar-item'>
+						<li className='ml-2 cursor-pointer'>
 							<Link to='/' className='nav-link'>
 								Logout
 							</Link>

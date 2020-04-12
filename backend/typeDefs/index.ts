@@ -10,12 +10,14 @@ const typeDefs = gql`
   }
 
   type User {
+    id: ID!
     username: String!
     email: String!
     password: String!
   }
 
   type Exercise {
+    id: ID!
     username: String!
     description: String!
     reps: Int!

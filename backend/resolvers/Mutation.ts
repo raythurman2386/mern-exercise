@@ -17,10 +17,34 @@ const signup = async (_parent: any, args: SignupValues) => {
   };
 };
 
-export default { signup };
+const login = async (_parent: any, args: LoginValues) => {
+  const [user]: any = await User.find({ email: args.email });
+  if (!user) {
+    throw new Error('That user does not exist');
+  }
+
+  const verify = await bcrypt.compare(args.password, user.password);
+  if (!verify) {
+    throw new Error('Passwords do not match');
+  }
+
+  const token = await generateToken({ id: user.id, username: user.username });
+
+  return {
+    token,
+    user,
+  };
+};
+
+export default { signup, login };
 
 interface SignupValues {
   username: string;
+  email: string;
+  password: string;
+}
+
+interface LoginValues {
   email: string;
   password: string;
 }

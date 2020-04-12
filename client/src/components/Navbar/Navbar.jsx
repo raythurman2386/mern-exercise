@@ -9,7 +9,7 @@ const Navbar = () => {
 			<Link to='/' className='cursor-pointer'>
 				Lift Tracker
 			</Link>
-			<div>
+			<div className='invisible md:visible'>
 				<ul className='flex'>
 					<li className='cursor-pointer'>
 						<Link to='/exercises' className='nav-link'>

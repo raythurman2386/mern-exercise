@@ -7,7 +7,9 @@ import './assets/main.css';
 import App from './App';
 
 const client = new ApolloClient({
-	uri: process.env.BACKEND_URL || 'http://localhost:8000/graphql',
+	uri:
+		'https://lift-track-mern.herokuapp.com/graphql' ||
+		'http://localhost:8000/graphql',
 });
 
 const AppWithRouter = withRouter(App);

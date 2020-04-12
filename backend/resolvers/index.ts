@@ -1,5 +1,7 @@
+import Query from './Query';
+
 const resolvers = {
-  Query: () => 'Hello World',
+  Query,
 };
 
 export default resolvers;

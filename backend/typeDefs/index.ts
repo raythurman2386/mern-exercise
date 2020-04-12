@@ -41,6 +41,7 @@ const typeDefs = gql`
       sets: Int!
       date: String!
     ): Exercise
+    deleteExercise(id: ID!): String
   }
 `;
 

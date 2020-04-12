@@ -45,7 +45,12 @@ const addExercise = async (_parent: any, args: ExerciseValues) => {
   return exercise;
 };
 
-export default { signup, login, addExercise };
+const deleteExercise = async (_parent: any, args: { id: number }) => {
+  await Exercise.findByIdAndDelete(args.id);
+  return 'Exercise Deleted';
+};
+
+export default { signup, login, addExercise, deleteExercise };
 
 interface SignupValues {
   username: string;

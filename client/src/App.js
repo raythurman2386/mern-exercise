@@ -2,23 +2,21 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 
 // Components
-import Navbar from './components/Navbar';
-import ExerciseList from './components/ExerciseList';
-import EditExercise from './components/EditExercise';
-import CreateExercise from './components/CreateExercise';
-import CreateUser from './components/CreateUser';
+import Navbar from './components/Navbar/Navbar';
+import ExerciseList from './components/Exercise/ExerciseList';
+import EditExercise from './components/Exercise/EditExercise';
+import CreateExercise from './components/Exercise/CreateExercise';
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <br />
-      <Route exact path='/' component={ExerciseList} />
-      <Route path='/edit/:id' component={EditExercise} />
-      <Route path='/create' component={CreateExercise} />
-      <Route path='/user' component={CreateUser} />
-    </>
-  );
+	return (
+		<>
+			<Navbar />
+			<br />
+			<Route exact path='/' component={ExerciseList} />
+			<Route path='/edit/:id' component={EditExercise} />
+			<Route path='/create' component={CreateExercise} />
+		</>
+	);
 }
 
 export default App;

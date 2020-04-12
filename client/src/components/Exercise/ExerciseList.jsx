@@ -21,8 +21,6 @@ const ExerciseList = () => {
 		));
 	};
 
-	console.log(data.exercises);
-
 	return (
 		<div>
 			<h3>Logged Exercises</h3>

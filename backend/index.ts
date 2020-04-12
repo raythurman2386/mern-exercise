@@ -1,9 +1,9 @@
-require('dotenv').config();
-const server = require('./api/server');
-const mongoose = require('mongoose');
+import 'dotenv/config';
+import app from './api/server';
+import mongoose from 'mongoose';
 
 const port = process.env.PORT || 4000;
-const uri = process.env.ATLAS_URI;
+const uri = process.env.ATLAS_URI!;
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
@@ -17,6 +17,6 @@ connection.once('open', () => {
   console.log('MongoDB database connection established.');
 });
 
-server.listen(port, () => {
+app.listen(port, () => {
   console.log(`\nServer running on port: ${port}\n`);
 });

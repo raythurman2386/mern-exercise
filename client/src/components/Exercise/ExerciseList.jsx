@@ -1,6 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_EXERCISES } from '../../queries';
+import Exercise from './Exercise';
 
 const ExerciseList = () => {
 	const { loading, error, data } = useQuery(GET_EXERCISES);
@@ -14,12 +15,30 @@ const ExerciseList = () => {
 		return <h3>Something has went wrong</h3>;
 	}
 
+	const list = () => {
+		return data.exercises.map(exercise => (
+			<Exercise key={exercise.id} exercise={exercise} />
+		));
+	};
+
+	console.log(data.exercises);
+
 	return (
 		<div>
-			{data.exercises &&
-				data.exercises.map(exercise => (
-					<p key={exercise.id}>{exercise.description}</p>
-				))}
+			<h3>Logged Exercises</h3>
+			<table className='table'>
+				<thead className='thead-light'>
+					<tr>
+						<th>Username</th>
+						<th>Description</th>
+						<th>Reps</th>
+						<th>Sets</th>
+						<th>Date</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>{list()}</tbody>
+			</table>
 		</div>
 	);
 };

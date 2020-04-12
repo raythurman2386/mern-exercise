@@ -1,8 +1,8 @@
 import User from '../models/user.model';
 import Exercise from '../models/exercise.model';
 
-const hello = () => {
-  return 'Hello world';
+const welcome = () => {
+  return 'Welcome to your exercise tracker';
 };
 
 const users = () => {
@@ -21,4 +21,4 @@ const exercise = (_parent: any, args: { id: number }) => {
   return Exercise.findById(args.id);
 };
 
-export default { hello, users, user, exercises, exercise };
+export default { welcome, users, user, exercises, exercise };

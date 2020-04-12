@@ -45,12 +45,20 @@ const addExercise = async (_parent: any, args: ExerciseValues) => {
   return exercise;
 };
 
+const updateExercise = async (_parent: any, args: ExerciseValues) => {
+  const updatedExercise: any = await Exercise.findOneAndUpdate(
+    { _id: args._id },
+    args
+  );
+  return Exercise.findById(updatedExercise._id);
+};
+
 const deleteExercise = async (_parent: any, args: { id: number }) => {
   await Exercise.findByIdAndDelete(args.id);
   return 'Exercise Deleted';
 };
 
-export default { signup, login, addExercise, deleteExercise };
+export default { signup, login, addExercise, updateExercise, deleteExercise };
 
 interface SignupValues {
   username: string;
@@ -64,6 +72,7 @@ interface LoginValues {
 }
 
 interface ExerciseValues {
+  _id: string;
   username: string;
   description: string;
   reps: number;

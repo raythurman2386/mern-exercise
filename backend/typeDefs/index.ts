@@ -2,7 +2,7 @@ import { gql } from 'apollo-server-express';
 
 const typeDefs = gql`
   type Query {
-    hello: String
+    welcome: String
     users: [User]!
     user(id: ID!): User
     exercises: [Exercise]!
@@ -35,6 +35,14 @@ const typeDefs = gql`
     signup(username: String!, email: String!, password: String!): AuthPayload
     login(email: String!, password: String!): AuthPayload
     addExercise(
+      username: String!
+      description: String!
+      reps: Int!
+      sets: Int!
+      date: String!
+    ): Exercise
+    updateExercise(
+      _id: ID!
       username: String!
       description: String!
       reps: Int!

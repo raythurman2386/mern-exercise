@@ -22,6 +22,15 @@ const typeDefs = gql`
     sets: Int!
     date: String!
   }
+
+  type AuthPayload {
+    token: String!
+    user: User!
+  }
+
+  type Mutation {
+    signup(username: String!, email: String!, password: String!): AuthPayload
+  }
 `;
 
 export default typeDefs;

@@ -3,31 +3,32 @@ import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-import { GET_USERS, GET_EXERCISE } from '../../queries';
+import { GET_UPDATE } from '../../queries';
 
 const EditExercise = props => {
-	// const { loading: userLoading, error: userError, data: userData } = useQuery(
-	// 	GET_USERS
-	// );
-	// const { loading, error, data } = useQuery(GET_EXERCISE, {
-	// 	variables: { id: props.match.params.id },
-	// });
-	const [username, setUsername] = useState('');
-	const [description, setDescription] = useState('');
-	const [reps, setReps] = useState(0);
-	const [sets, setSets] = useState(0);
-	const [date, setDate] = useState(new Date());
+	const { loading, error, data } = useQuery(GET_UPDATE, {
+		variables: { id: props.match.params.id },
+	});
+	const [username, setUsername] = useState(data ? data.exercise.username : '');
+	const [description, setDescription] = useState(
+		data ? data.exercise.description : ''
+	);
+	const [reps, setReps] = useState(data ? data.exercise.reps : 0);
+	const [sets, setSets] = useState(data ? data.exercise.sets : 0);
+	const [date, setDate] = useState(
+		data ? Date.parse(data.exercise.date) : new Date()
+	);
 
-	// console.log(data);
+	console.log(data);
 
-	// if (userLoading || loading) {
-	// 	return <h3>Loading . . .</h3>;
-	// }
+	if (loading) {
+		return <h3>Loading . . .</h3>;
+	}
 
-	// if (userError || error) {
-	// 	console.log(error);
-	// 	return <h3>Something has went wrong</h3>;
-	// }
+	if (error) {
+		console.log(error);
+		return <h3>Something has went wrong</h3>;
+	}
 
 	const onSubmit = e => {
 		e.preventDefault();
@@ -53,13 +54,14 @@ const EditExercise = props => {
 						value={username}
 						onChange={e => setUsername(e.target.value)}
 					>
-						{/* {userData.users.map(user => {
-							return (
-								<option key={user} value={user}>
-									{user}
-								</option>
-							);
-						})} */}
+						{data &&
+							data.users.map(user => {
+								return (
+									<option key={user.id} value={user.username}>
+										{user.username}
+									</option>
+								);
+							})}
 					</select>
 				</div>
 				<div className='form-group'>

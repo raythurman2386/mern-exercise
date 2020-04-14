@@ -26,6 +26,24 @@ export const GET_EXERCISE = gql`
 	}
 `;
 
+export const GET_UPDATE = gql`
+	query getUsers($id: ID!) {
+		users {
+			id
+			username
+		}
+
+		exercise(id: $id) {
+			id
+			username
+			description
+			reps
+			sets
+			date
+		}
+	}
+`;
+
 export const GET_USERS = gql`
 	{
 		users {

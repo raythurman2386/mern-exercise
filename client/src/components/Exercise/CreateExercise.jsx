@@ -1,7 +1,9 @@
 // @ts-nocheck
 import React, { useState } from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { GET_USERS } from '../../queries';
 
 const CreateExercise = props => {
 	const [username, setUsername] = useState('');
@@ -9,7 +11,16 @@ const CreateExercise = props => {
 	const [reps, setReps] = useState(0);
 	const [sets, setSets] = useState(0);
 	const [date, setDate] = useState(new Date());
-	const [users, setUsers] = useState([]);
+	const { loading, error, data } = useQuery(GET_USERS);
+
+	if (loading) {
+		return <h3>Loading . . .</h3>;
+	}
+
+	if (error) {
+		console.log(error);
+		return <h3>Something has went wrong</h3>;
+	}
 
 	const onSubmit = e => {
 		e.preventDefault();
@@ -35,10 +46,10 @@ const CreateExercise = props => {
 						value={username}
 						onChange={e => setUsername(e.target.value)}
 					>
-						{users.map(user => {
+						{data.users.map(user => {
 							return (
-								<option key={user} value={user}>
-									{user}
+								<option key={user.id} value={user.username}>
+									{user.username}
 								</option>
 							);
 						})}

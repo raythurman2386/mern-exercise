@@ -15,8 +15,8 @@ function App() {
 			{/* <Route path='/signup' component={SignUp} />
 			<Route path='/login' component={Login} /> */}
 			<Route path='/exercises' component={ExerciseList} />
-			<Route path='/edit/:id' component={EditExercise} />
-			<Route path='/create' component={CreateExercise} />
+			<Route path='/exercise/:id' component={EditExercise} />
+			<Route path='/exercise/create' component={CreateExercise} />
 		</Layout>
 	);
 }

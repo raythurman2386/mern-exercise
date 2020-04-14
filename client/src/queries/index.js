@@ -12,3 +12,12 @@ export const GET_EXERCISES = gql`
 		}
 	}
 `;
+
+export const GET_USERS = gql`
+	{
+		users {
+			id
+			username
+		}
+	}
+`;

@@ -19,8 +19,6 @@ const EditExercise = props => {
 		data ? Date.parse(data.exercise.date) : new Date()
 	);
 
-	console.log(data);
-
 	if (loading) {
 		return <h3>Loading . . .</h3>;
 	}

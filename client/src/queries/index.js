@@ -13,6 +13,19 @@ export const GET_EXERCISES = gql`
 	}
 `;
 
+export const GET_EXERCISE = gql`
+	query exercise($id: ID!) {
+		exercise(id: $id) {
+			id
+			username
+			description
+			reps
+			sets
+			date
+		}
+	}
+`;
+
 export const GET_USERS = gql`
 	{
 		users {

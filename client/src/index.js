@@ -1,11 +1,25 @@
+import 'dotenv/config';
 import React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter as Router, withRouter } from 'react-router-dom';
-import './index.css';
+import ApolloClient from 'apollo-boost';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { BrowserRouter as Router } from 'react-router-dom';
+// import { InMemoryCache } from 'apollo-cache-inmemory';
+import './assets/main.css';
 import App from './App';
 
-import "bootstrap/dist/css/bootstrap.min.css"
+// const cache = new InMemoryCache();
 
-const AppWithRouter = withRouter(App)
+const client = new ApolloClient({
+	uri: process.env.BACKEND_URL || 'http://localhost:8000/graphql',
+	// cache,
+});
 
-render(<Router><AppWithRouter /></Router>, document.getElementById('root'));
+render(
+	<ApolloProvider client={client}>
+		<Router>
+			<App />
+		</Router>
+	</ApolloProvider>,
+	document.getElementById('root')
+);

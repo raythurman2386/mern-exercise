@@ -21,4 +21,8 @@ const exercise = (_parent: any, args: { id: number }) => {
   return Exercise.findById(args.id);
 };
 
-export default { welcome, users, user, exercises, exercise };
+const myExercises = (_parent: any, args: { username: string }) => {
+  return Exercise.find({ username: args.username });
+};
+
+export default { welcome, users, user, exercises, exercise, myExercises };

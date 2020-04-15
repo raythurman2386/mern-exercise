@@ -7,6 +7,7 @@ const typeDefs = gql`
     user(id: ID!): User
     exercises: [Exercise]!
     exercise(id: ID!): Exercise
+    myExercises(username: String!): [Exercise]!
   }
 
   type User {

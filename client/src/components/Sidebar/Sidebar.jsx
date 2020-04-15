@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 	return (
@@ -10,7 +11,9 @@ const Sidebar = () => {
 					</h1>
 
 					<ul className='text-center text-gray-400'>
-						<li>Add Exercise</li>
+						<li>
+							<Link to='/exercise/create'>Add Exercise</Link>
+						</li>
 						<li>View Profile</li>
 					</ul>
 				</>

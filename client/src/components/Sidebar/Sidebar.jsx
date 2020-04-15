@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Sidebar = () => {
 	return (
-		<div className='w-64 h-screen bg-gray-900 overflow-hidden'>
+		<div className='w-1/6 h-screen bg-gray-900 overflow-hidden'>
 			{localStorage.getItem('token') ? (
 				<>
 					<h1 className='mt-6 pb-2 text-center text-gray-200 '>

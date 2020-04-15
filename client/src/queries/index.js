@@ -27,7 +27,7 @@ export const GET_EXERCISE = gql`
 `;
 
 export const GET_UPDATE = gql`
-	query getUsers($id: ID!) {
+	query getUpdate($id: ID!) {
 		users {
 			id
 			username

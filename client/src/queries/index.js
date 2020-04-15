@@ -93,3 +93,11 @@ export const ADD_EXERCISE = gql`
 		}
 	}
 `;
+
+export const DELETE_EXERCISE = gql`
+	mutation deleteExercise($id: ID!) {
+		deleteExercise(id: $id) {
+			id
+		}
+	}
+`;

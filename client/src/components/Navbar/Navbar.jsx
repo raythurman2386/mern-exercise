@@ -5,7 +5,7 @@ const Navbar = () => {
 	const loggedIn = localStorage.getItem('token');
 
 	return (
-		<nav className='bg-gray-800 text-gray-300 flex py-4 px-2 justify-between'>
+		<nav className='bg-gray-800 text-gray-300 flex py-4 px-2 justify-between fixed top-0 w-full'>
 			<Link to='/' className='cursor-pointer'>
 				Lift Tracker
 			</Link>

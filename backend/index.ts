@@ -1,20 +1,18 @@
 import 'dotenv/config';
 import app from './src/api/server';
 import mongoose from 'mongoose';
+import { setURI } from './src/helpers';
 
 const port = process.env.PORT || 4000;
-const uri = process.env.ATLAS_URI || 'mongodb://localhost/lift-tracker';
 
-mongoose.connect(uri, {
+mongoose.connect(setURI(), {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
 });
 
-const connection = mongoose.connection;
-
-connection.once('open', () => {
+mongoose.connection.once('open', () => {
   console.log(`Connection to MongoDB complete.`);
 });
 

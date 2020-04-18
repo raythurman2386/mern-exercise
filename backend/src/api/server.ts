@@ -2,14 +2,15 @@ import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import typeDefs from '../typeDefs';
 import resolvers from '../resolvers';
+import { isProduction } from '../helpers';
 
 const app = express();
 
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  introspection: process.env.NODE_ENV !== 'production',
-  playground: process.env.NODE_ENV !== 'production',
+  introspection: !isProduction,
+  playground: !isProduction,
 });
 
 app.get('/', (_req, res) => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 // Components
 import Layout from './components/Layout/Layout';
@@ -13,12 +13,14 @@ import Login from './views/Login/Login';
 function App() {
 	return (
 		<Layout>
-			<Route exact path='/' component={Home} />
-			<Route path='/signup' component={Signup} />
-			<Route path='/login' component={Login} />
-			<Route path='/exercises' component={ExerciseList} />
-			<Route path='/exercise/:id' component={EditExercise} />
-			<Route path='/exercise/create' component={CreateExercise} />
+			<Switch>
+				<Route exact path='/' component={Home} />
+				<Route path='/signup' component={Signup} />
+				<Route path='/login' component={Login} />
+				<Route path='/exercises' component={ExerciseList} />
+				<Route path='/exercise/:id' component={EditExercise} />
+				<Route path='/exercise/create' component={CreateExercise} />
+			</Switch>
 		</Layout>
 	);
 }

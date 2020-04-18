@@ -9,7 +9,8 @@
     "server": "nodemon index.ts",
     "build": "npx tsc -p .",
     "format": "prettier \"**/*.{ts,tsx}\" --write",
-    "test": "jest --detectOpenHandles --forceExit --verbose --watchAll",
+    "test": "jest --detectOpenHandles --forceExit",
+    "test:dev": "jest --detectOpenHandles --forceExit --verbose --watchAll",
     "test:coverage": "jest --coverage"
   },
   "keywords": [],

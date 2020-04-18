@@ -1,9 +1,9 @@
 import 'dotenv/config';
-import app from './api/server';
+import app from './src/api/server';
 import mongoose from 'mongoose';
 
 const port = process.env.PORT || 4000;
-const uri = process.env.ATLAS_URI!;
+const uri = process.env.ATLAS_URI || 'mongodb://localhost/lift-tracker';
 
 mongoose.connect(uri, {
   useNewUrlParser: true,

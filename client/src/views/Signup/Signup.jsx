@@ -6,11 +6,11 @@ const Signup = () => {
 	};
 
 	return (
-		<div className='min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
+		<div className='min-h-screen flex justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8'>
 			<div className='max-w-md w-full'>
 				<div>
 					<h2 className='mt-6 text-center text-3xl leading-9 font-extrabold text-gray-900'>
-						Sign in to your account
+						Create your account
 					</h2>
 				</div>
 				<form className='mt-8' onSubmit={handleSubmit}>
@@ -26,6 +26,16 @@ const Signup = () => {
 								placeholder='Email address'
 							/>
 						</div>
+						<div>
+							<input
+								aria-label='Username'
+								name='username'
+								type='username'
+								required
+								className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5'
+								placeholder='Username'
+							/>
+						</div>
 						<div className='-mt-px'>
 							<input
 								aria-label='Password'
@@ -35,28 +45,6 @@ const Signup = () => {
 								className='appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5'
 								placeholder='Password'
 							/>
-						</div>
-					</div>
-
-					<div className='mt-6 flex items-center justify-between'>
-						<div className='flex items-center'>
-							<input
-								id='remember_me'
-								type='checkbox'
-								className='form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out'
-							/>
-							<label
-								for='remember_me'
-								className='ml-2 block text-sm leading-5 text-gray-900'
-							>
-								Remember me
-							</label>
-						</div>
-
-						<div className='text-sm leading-5'>
-							<p className='font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150'>
-								Forgot your password?
-							</p>
 						</div>
 					</div>
 
@@ -78,7 +66,7 @@ const Signup = () => {
 									/>
 								</svg>
 							</span>
-							Sign in
+							Sign Up
 						</button>
 					</div>
 				</form>

@@ -11,7 +11,7 @@ import App from './App';
 const cache = new InMemoryCache();
 
 const client = new ApolloClient({
-	uri: process.env.BACKEND_URL || 'http://localhost:8000/graphql',
+	uri: 'https://lift-track-mern.herokuapp.com/graphql',
 	cache,
 });
 

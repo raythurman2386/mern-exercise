@@ -11,11 +11,13 @@ const Navbar = () => {
 			</Link>
 			<div className='invisible md:visible'>
 				<ul className='flex'>
-					<li className='cursor-pointer'>
-						<Link to='/exercises' className='nav-link'>
-							Exercises
-						</Link>
-					</li>
+					{loggedIn && (
+						<li className='cursor-pointer'>
+							<Link to='/exercises' className='nav-link'>
+								Exercises
+							</Link>
+						</li>
+					)}
 					{!loggedIn && (
 						<li className='ml-2 cursor-pointer'>
 							<Link to='/signup' className='nav-link'>

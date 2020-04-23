@@ -8,7 +8,7 @@ function Copyright() {
 				color='inherit'
 				href='https://raythurman.com'
 				target='__blank'
-				rel='noreferrer'
+				rel='nofollow noopener noreferrer'
 			>
 				Ray Thurman
 			</a>{' '}

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import DatePicker from 'react-datepicker';

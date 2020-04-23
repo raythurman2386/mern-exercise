@@ -12,16 +12,16 @@ import Login from './views/Login/Login';
 
 function App() {
 	return (
-		<Layout>
-			<Switch>
+		<Switch>
+			<Layout>
 				<Route exact path='/' component={Home} />
 				<Route path='/signup' component={Signup} />
 				<Route path='/login' component={Login} />
 				<Route path='/exercises' component={ExerciseList} />
 				<Route path='/exercise/:id' component={EditExercise} />
 				<Route path='/exercise/create' component={CreateExercise} />
-			</Switch>
-		</Layout>
+			</Layout>
+		</Switch>
 	);
 }
 

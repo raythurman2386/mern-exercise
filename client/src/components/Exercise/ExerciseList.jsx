@@ -33,22 +33,22 @@ const ExerciseList = () => {
 		<div className='table w-full'>
 			<div className='table-header-group'>
 				<div className='table-row'>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Username
 					</div>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Description
 					</div>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Reps
 					</div>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Sets
 					</div>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Date
 					</div>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Actions
 					</div>
 				</div>

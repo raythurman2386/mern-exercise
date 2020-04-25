@@ -4,6 +4,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { GET_USERS } from '../../queries';
 
+// TODO:CREATE EXERCISE COMPONENT
+// HOOK COMPONENT UP TO CLIENT
+// TROUBLESHOOT BACKEND ERROR WITH ID CREATION
+
 const CreateExercise = props => {
 	const [username, setUsername] = useState('');
 	const [description, setDescription] = useState('');
@@ -23,14 +27,6 @@ const CreateExercise = props => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-
-		const exercise = {
-			username,
-			description,
-			reps,
-			sets,
-			date,
-		};
 	};
 
 	return (
@@ -41,7 +37,7 @@ const CreateExercise = props => {
 					<label>Username: </label>
 					<select
 						required
-						className='form-control'
+						className='form-control text-gray-900'
 						value={username}
 						onChange={e => setUsername(e.target.value)}
 					>

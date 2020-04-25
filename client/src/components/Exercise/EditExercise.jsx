@@ -5,6 +5,10 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { GET_UPDATE } from '../../queries';
 
+// TODO:UPDATE EXERCISE COMPONENT
+// HOOK COMPONENT UP TO CLIENT
+// TROUBLESHOOT BACKEND ERROR WITH ID CREATION
+
 const EditExercise = props => {
 	const { loading, error, data } = useQuery(GET_UPDATE, {
 		variables: { id: props.match.params.id },

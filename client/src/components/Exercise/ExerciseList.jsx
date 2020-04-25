@@ -11,13 +11,21 @@ const ExerciseList = () => {
 	}
 
 	if (error) {
-		console.log(error);
+		console.error(error);
 		return <h3>Something has went wrong</h3>;
 	}
 
+	const deleteExercise = id => {
+		console.log(id);
+	};
+
 	const list = () => {
 		return data.exercises.map(exercise => (
-			<Exercise key={exercise.id} exercise={exercise} />
+			<Exercise
+				key={exercise.id}
+				exercise={exercise}
+				deleteExercise={deleteExercise}
+			/>
 		));
 	};
 

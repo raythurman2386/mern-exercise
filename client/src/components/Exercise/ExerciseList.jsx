@@ -22,21 +22,30 @@ const ExerciseList = () => {
 	};
 
 	return (
-		<div>
-			<h3>Logged Exercises</h3>
-			<table className='table'>
-				<thead className='thead-light'>
-					<tr>
-						<th>Username</th>
-						<th>Description</th>
-						<th>Reps</th>
-						<th>Sets</th>
-						<th>Date</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>{list()}</tbody>
-			</table>
+		<div className='table w-full'>
+			<div className='table-header-group'>
+				<div className='table-row'>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+						Username
+					</div>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+						Description
+					</div>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+						Reps
+					</div>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+						Sets
+					</div>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+						Date
+					</div>
+					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm'>
+						Actions
+					</div>
+				</div>
+			</div>
+			<div className='table-row-group'>{list()}</div>
 		</div>
 	);
 };

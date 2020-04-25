@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import ProtectedRoute from './utils/ProtectedRoute';
 
 // Components
 import Layout from './components/Layout/Layout';
@@ -17,9 +18,9 @@ function App() {
 				<Route exact path='/' component={Home} />
 				<Route path='/signup' component={Signup} />
 				<Route path='/login' component={Login} />
-				<Route path='/exercises' component={ExerciseList} />
-				<Route path='/exercise/:id' component={EditExercise} />
-				<Route path='/exercise/create' component={CreateExercise} />
+				<ProtectedRoute path='/exercises' component={ExerciseList} />
+				<ProtectedRoute path='/exercise/:id' component={EditExercise} />
+				<ProtectedRoute path='/exercise/create' component={CreateExercise} />
 			</Layout>
 		</Switch>
 	);

@@ -37,7 +37,7 @@ const login = async (_parent: any, args: LoginValues) => {
   };
 };
 
-const addExercise = async (_parent: any, args: ExerciseValues) => {
+const addExercise = async (_parent: any, args: AddExerciseValues) => {
   const newExercise = new Exercise(args);
 
   const exercise = await newExercise.save();
@@ -69,6 +69,14 @@ interface SignupValues {
 interface LoginValues {
   email: string;
   password: string;
+}
+
+interface AddExerciseValues {
+  username: string;
+  description: string;
+  reps: number;
+  sets: number;
+  date: string;
 }
 
 interface ExerciseValues {

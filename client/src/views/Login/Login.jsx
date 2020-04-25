@@ -13,7 +13,7 @@ const Login = props => {
 		login({ variables: { email, password } })
 			.then(res => {
 				localStorage.setItem('token', res.data.login.token);
-				localStorage.setItem('name', res.data.login.user.username);
+				localStorage.setItem('username', res.data.login.user.username);
 			})
 			.then(data => props.history.push('/exercises'))
 			.catch(err => alert(err.message));

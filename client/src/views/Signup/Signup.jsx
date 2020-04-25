@@ -14,7 +14,7 @@ const Signup = props => {
 		signup({ variables: { email, username, password } })
 			.then(res => {
 				localStorage.setItem('token', res.data.signup.token);
-				localStorage.setItem('name', res.data.signup.user.username);
+				localStorage.setItem('username', res.data.signup.user.username);
 			})
 			.then(data => props.history.push('/exercises'))
 			.catch(err => alert(err.message));

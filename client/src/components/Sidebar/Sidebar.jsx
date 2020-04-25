@@ -8,9 +8,9 @@ const Sidebar = () => {
 		<div className='pt-6 w-64 h-screen bg-gray-900 overflow-hidden hidden transition ease-in duration-700 md:flex md:flex-col flex-shrink-0'>
 			{localStorage.getItem('token') ? (
 				<>
-					<h1 className='pb-2 text-center text-gray-200'>
+					<h1 className='pb-2 text-center text-gray-200 text-xl'>
 						Welcome Back{' '}
-						<span className='capitalize'>
+						<span className='capitalize font-semibold'>
 							{username ? `${username}!` : 'User!'}
 						</span>
 					</h1>

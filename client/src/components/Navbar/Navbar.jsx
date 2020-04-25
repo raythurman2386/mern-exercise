@@ -11,10 +11,10 @@ const Navbar = props => {
 	};
 
 	return (
-		<nav className='flex items-center justify-between flex-wrap bg-gray-800 p-6'>
-			<div className='flex items-center flex-shrink-0 text-white mr-6'>
+		<nav className='flex items-center justify-between flex-wrap bg-gray-800 p-6 shadow-md'>
+			<div className='flex justify-between items-center text-white mr-6'>
 				<Link to='/'>
-					<span className='font-semibold text-xl tracking-tight'>
+					<span className='font-semibold text-xl uppercase tracking-tight'>
 						Lift Tracker
 					</span>
 				</Link>
@@ -31,7 +31,7 @@ const Navbar = props => {
 					</svg>
 				</button>
 			</div>
-			<div className='w-full block flex-grow md:flex md:items-center md:w-auto'>
+			<div className='w-full block md:flex md:items-center md:w-auto'>
 				<div className='text-sm md:flex-grow'>
 					{loggedIn && (
 						<Link

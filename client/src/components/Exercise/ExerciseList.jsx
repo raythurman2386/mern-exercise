@@ -33,7 +33,7 @@ const ExerciseList = () => {
 		<div className='table w-full'>
 			<div className='table-header-group'>
 				<div className='table-row'>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
+					<div className='rounded-tl-lg table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Username
 					</div>
 					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
@@ -48,7 +48,7 @@ const ExerciseList = () => {
 					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Date
 					</div>
-					<div className='table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
+					<div className='rounded-tr-lg table-cell bg-gray-400 text-gray-700 px-4 py-2 text-sm font-semibold'>
 						Actions
 					</div>
 				</div>

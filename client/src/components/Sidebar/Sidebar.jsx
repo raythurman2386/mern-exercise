@@ -27,20 +27,30 @@ const Sidebar = () => {
 			) : null}
 
 			<br />
-			<ul className='w-full text-center text-gray-400'>
-				<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
-					Workouts
-				</li>
-				<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
-					Programs
-				</li>
-				<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
-					Supplements
-				</li>
-				<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
-					Gym Wear
-				</li>
-			</ul>
+			<>
+				<h3 className='mb-2 py-2 text-center text-gray-200 font-semibold text-lg'>
+					Find a Workout
+				</h3>
+				<ul className='w-full text-center text-gray-400'>
+					<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
+						Programs
+					</li>
+					<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
+						Workouts
+					</li>
+				</ul>
+				<h3 className='mb-2 py-2 text-center text-gray-200 font-semibold text-lg'>
+					Check out our affiliate links
+				</h3>
+				<ul className='w-full text-center text-gray-400'>
+					<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
+						Supplements
+					</li>
+					<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
+						Gym Wear
+					</li>
+				</ul>
+			</>
 		</div>
 	);
 };

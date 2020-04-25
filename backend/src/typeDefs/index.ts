@@ -42,7 +42,7 @@ const typeDefs = gql`
       date: String!
     ): Exercise
     updateExercise(
-      _id: ID!
+      id: ID!
       username: String!
       description: String!
       reps: Int!

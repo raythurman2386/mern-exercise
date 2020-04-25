@@ -47,7 +47,7 @@ const addExercise = async (_parent: any, args: AddExerciseValues) => {
 
 const updateExercise = async (_parent: any, args: ExerciseValues) => {
   const updatedExercise: any = await Exercise.findOneAndUpdate(
-    { _id: args._id },
+    { _id: args.id },
     args
   );
   return Exercise.findById(updatedExercise._id);
@@ -80,7 +80,7 @@ interface AddExerciseValues {
 }
 
 interface ExerciseValues {
-  _id: string;
+  id: string;
   username: string;
   description: string;
   reps: number;

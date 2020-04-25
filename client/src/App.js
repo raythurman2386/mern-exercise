@@ -13,16 +13,20 @@ import Login from './views/Login/Login';
 
 function App() {
 	return (
-		<Switch>
-			<Layout>
+		<Layout>
+			<Switch>
 				<Route exact path='/' component={Home} />
 				<Route path='/signup' component={Signup} />
 				<Route path='/login' component={Login} />
-				<ProtectedRoute path='/exercises' component={ExerciseList} />
-				<ProtectedRoute path='/exercise/:id' component={EditExercise} />
-				<ProtectedRoute path='/exercise/create' component={CreateExercise} />
-			</Layout>
-		</Switch>
+				<ProtectedRoute exact path='/exercises' component={ExerciseList} />
+				<ProtectedRoute
+					exact
+					path='/exercise/create'
+					component={CreateExercise}
+				/>
+				<ProtectedRoute exact path='/exercise/:id' component={EditExercise} />
+			</Switch>
+		</Layout>
 	);
 }
 

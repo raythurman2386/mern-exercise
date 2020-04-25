@@ -1,19 +1,23 @@
 import React from 'react';
+import { useMutation } from '@apollo/react-hooks';
+import { SIGNUP } from '../../queries';
 import { useInput } from '../../hooks/useInput';
 
-const Signup = () => {
+const Signup = props => {
 	const [email, handleEmail] = useInput();
 	const [username, handleUsername] = useInput();
 	const [password, handlePassword] = useInput();
+	const [signup] = useMutation(SIGNUP);
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		let newUser = {
-			email,
-			username,
-			password,
-		};
-		console.log(newUser);
+		signup({ variables: { email, username, password } })
+			.then(res => {
+				localStorage.setItem('token', res.data.signup.token);
+				localStorage.setItem('name', res.data.signup.user.username);
+			})
+			.then(data => props.history.push('/exercises'))
+			.catch(err => alert(err.message));
 	};
 
 	return (

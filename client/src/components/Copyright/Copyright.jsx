@@ -2,7 +2,7 @@ import React from 'react';
 
 function Copyright() {
 	return (
-		<div className='mb-4 py-4 flex justify-center text-center bottom-auto'>
+		<div className='py-6 bg-gray-800 text-white flex justify-center text-center bottom-0'>
 			{'Copyright © '}
 			<a
 				color='inherit'

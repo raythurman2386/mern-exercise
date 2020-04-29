@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery } from '@apollo/react-hooks';
-import { GET_EXERCISES } from '../../queries';
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { GET_EXERCISES, DELETE_EXERCISE } from '../../queries';
 import Exercise from './Exercise';
 
 const ExerciseList = () => {
@@ -15,17 +15,9 @@ const ExerciseList = () => {
 		return <h3>Something has went wrong</h3>;
 	}
 
-	const deleteExercise = id => {
-		console.log(id);
-	};
-
 	const list = () => {
 		return data.exercises.map(exercise => (
-			<Exercise
-				key={exercise.id}
-				exercise={exercise}
-				deleteExercise={deleteExercise}
-			/>
+			<Exercise key={exercise.id} exercise={exercise} />
 		));
 	};
 

@@ -1,7 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useMutation } from '@apollo/react-hooks';
+import { GET_EXERCISES, DELETE_EXERCISE } from '../../queries';
 
 const Exercise = props => {
+	const [deleteExercise] = useMutation(DELETE_EXERCISE, {
+		update(cache, { data: { deleteExercise } }) {
+			const { exercises } = cache.readQuery({ query: GET_EXERCISES });
+			cache.writeQuery({
+				query: GET_EXERCISES,
+				data: {
+					exercises: exercises.filter(
+						exercise => exercise.id !== props.exercise.id
+					),
+				},
+			});
+		},
+	});
+
 	return (
 		<div className='table-row'>
 			<div className='table-cell bg-gray-200 text-gray-700 px-4 py-2 text-sm'>
@@ -23,7 +39,7 @@ const Exercise = props => {
 				<Link to={`/exercise/${props.exercise.id}`}>edit</Link> |{' '}
 				<button
 					onClick={() => {
-						props.deleteExercise(props.exercise.id);
+						deleteExercise({ variables: { id: props.exercise.id } });
 					}}
 				>
 					delete

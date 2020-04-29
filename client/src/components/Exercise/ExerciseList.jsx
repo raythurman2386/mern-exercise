@@ -1,6 +1,6 @@
 import React from 'react';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import { GET_EXERCISES, DELETE_EXERCISE } from '../../queries';
+import { useQuery } from '@apollo/react-hooks';
+import { GET_EXERCISES } from '../../queries';
 import Exercise from './Exercise';
 
 const ExerciseList = () => {

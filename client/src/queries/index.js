@@ -37,6 +37,19 @@ export const GET_EXERCISES = gql`
 	}
 `;
 
+export const GET_MY_EXERCISES = gql`
+	query myExercises($username: String!) {
+		myExercises(username: $username) {
+			id
+			username
+			description
+			reps
+			sets
+			date
+		}
+	}
+`;
+
 export const GET_EXERCISE = gql`
 	query exercise($id: ID!) {
 		exercise(id: $id) {

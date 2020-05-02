@@ -3,10 +3,6 @@ import { useQuery } from '@apollo/react-hooks';
 import { GET_UPDATE } from '../../queries';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 
-// TODO:UPDATE EXERCISE COMPONENT
-// HOOK COMPONENT UP TO CLIENT
-// TROUBLESHOOT BACKEND ERROR WITH ID CREATION
-
 const EditExercise = props => {
 	const { exercise } = useLocalStorage('exercise');
 	const { loading, error, data } = useQuery(GET_UPDATE, {

@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { GET_UPDATE } from '../../queries';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 
 // TODO:UPDATE EXERCISE COMPONENT
 // HOOK COMPONENT UP TO CLIENT
 // TROUBLESHOOT BACKEND ERROR WITH ID CREATION
 
 const EditExercise = props => {
+	const { exercise } = useLocalStorage('exercise');
 	const { loading, error, data } = useQuery(GET_UPDATE, {
 		variables: { id: props.match.params.id },
 	});
 
-	const [username, setUsername] = useState(data ? data.exercise.username : '');
-	const [description, setDescription] = useState(
-		data ? data.exercise.description : ''
+	const [username, setUsername] = useState(
+		data ? data.exercise.username : exercise.username
 	);
-	const [reps, setReps] = useState(data ? data.exercise.reps : 0);
-	const [sets, setSets] = useState(data ? data.exercise.sets : 0);
-	const [date, setDate] = useState(data ? data.exercise.date : '');
-
-	console.log(data);
+	const [description, setDescription] = useState(
+		data ? data.exercise.description : exercise.description
+	);
+	const [reps, setReps] = useState(data ? data.exercise.reps : exercise.reps);
+	const [sets, setSets] = useState(data ? data.exercise.sets : exercise.sets);
+	const [date, setDate] = useState(data ? data.exercise.date : exercise.date);
 
 	if (loading) {
 		return <h3>Loading . . .</h3>;

@@ -44,10 +44,10 @@ const Sidebar = () => {
 				</h3>
 				<ul className='w-full text-center text-gray-400'>
 					<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
-						Supplements
+						Bucked Up Supps
 					</li>
 					<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
-						Gym Wear
+						Krusaders Gym Wear
 					</li>
 				</ul>
 			</>

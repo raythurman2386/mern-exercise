@@ -1,6 +1,6 @@
 import React from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
-import { GET_USERS, ADD_EXERCISE } from '../../queries';
+import { GET_USERS, ADD_EXERCISE, GET_EXERCISES } from '../../queries';
 import { useInput } from '../../hooks/useInput';
 
 // TODO:CREATE EXERCISE COMPONENT
@@ -14,7 +14,23 @@ const CreateExercise = props => {
 	const [sets, handleSets] = useInput();
 	const [date, handleDate] = useInput();
 	const { loading, error, data } = useQuery(GET_USERS);
-	const [addExercise] = useMutation(ADD_EXERCISE);
+	const [addExercise] = useMutation(ADD_EXERCISE, {
+		update(cache, { data: { username, description, reps, sets, date } }) {
+			const { exercises } = cache.readQuery({ query: GET_EXERCISES });
+			cache.writeQuery({
+				query: GET_EXERCISES,
+				data: {
+					exercises: exercises.concat({
+						username,
+						description,
+						reps,
+						sets,
+						date,
+					}),
+				},
+			});
+		},
+	});
 
 	if (loading) {
 		return <h3>Loading . . .</h3>;

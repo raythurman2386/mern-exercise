@@ -15,9 +15,9 @@ function App() {
 	return (
 		<Switch>
 			<Route exact path='/' component={Home} />
+			<Route path='/signup' component={Signup} />
+			<Route path='/login' component={Login} />
 			<Layout>
-				<Route path='/signup' component={Signup} />
-				<Route path='/login' component={Login} />
 				<ProtectedRoute exact path='/exercises' component={ExerciseList} />
 				<ProtectedRoute
 					exact

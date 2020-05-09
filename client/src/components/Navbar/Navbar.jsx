@@ -16,7 +16,7 @@ const Navbar = props => {
 			className={
 				(props.transparent
 					? 'top-0 absolute z-50 w-full'
-					: 'relative shadow-lg bg-gray-900 shadow-lg') +
+					: 'relative shadow-lg bg-gray-900 shadow-lg text-white') +
 				' flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg'
 			}
 		>
@@ -25,8 +25,7 @@ const Navbar = props => {
 					<Link to='/'>
 						<span
 							className={
-								(props.transparent ? 'text-white' : 'text-gray-800') +
-								' text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase'
+								'text-white text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-no-wrap uppercase'
 							}
 						>
 							Lift Tracker
@@ -93,7 +92,7 @@ const Navbar = props => {
 									className={
 										(props.transparent
 											? 'lg:text-white lg:hover:text-gray-300 text-gray-800'
-											: 'text-gray-800 hover:text-gray-600') +
+											: 'text-gray-100 hover:text-gray-600') +
 										' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
 									}
 									to='/exercises'
@@ -109,7 +108,7 @@ const Navbar = props => {
 									className={
 										(props.transparent
 											? 'lg:text-white lg:hover:text-gray-300 text-gray-800'
-											: 'text-gray-800 hover:text-gray-600') +
+											: 'text-gray-100 hover:text-gray-600') +
 										' px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold'
 									}
 									to='/exercises'

@@ -9,23 +9,18 @@ const EditExercise = props => {
 		variables: { id: props.match.params.id },
 	});
 
-	const [username, setUsername] = useState(
-		data ? data.exercise.username : exercise.username
-	);
-	const [description, setDescription] = useState(
-		data ? data.exercise.description : exercise.description
-	);
-	const [reps, setReps] = useState(data ? data.exercise.reps : exercise.reps);
-	const [sets, setSets] = useState(data ? data.exercise.sets : exercise.sets);
-	const [date, setDate] = useState(data ? data.exercise.date : exercise.date);
+	const [username, setUsername] = useState();
+	const [description, setDescription] = useState();
+	const [reps, setReps] = useState();
+	const [sets, setSets] = useState();
+	const [date, setDate] = useState();
 
 	if (loading) {
 		return <h3>Loading . . .</h3>;
 	}
 
 	if (error) {
-		console.log(error);
-		return <h3>Something has went wrong</h3>;
+		console.error(error);
 	}
 
 	const handleSubmit = async e => {

@@ -19,12 +19,12 @@ function App() {
 			<Route path='/login' component={Login} />
 			<Layout>
 				<ProtectedRoute exact path='/exercises' component={ExerciseList} />
+				<ProtectedRoute exact path='/exercise/:id' component={EditExercise} />
 				<ProtectedRoute
 					exact
-					path='/exercise/create'
+					path='/exercises/create'
 					component={CreateExercise}
 				/>
-				<ProtectedRoute exact path='/exercise/:id' component={EditExercise} />
 			</Layout>
 		</Switch>
 	);

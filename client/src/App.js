@@ -13,9 +13,9 @@ import Login from './views/Login/Login';
 
 function App() {
 	return (
-		<Layout>
-			<Switch>
-				<Route exact path='/' component={Home} />
+		<Switch>
+			<Route exact path='/' component={Home} />
+			<Layout>
 				<Route path='/signup' component={Signup} />
 				<Route path='/login' component={Login} />
 				<ProtectedRoute exact path='/exercises' component={ExerciseList} />
@@ -25,8 +25,8 @@ function App() {
 					component={CreateExercise}
 				/>
 				<ProtectedRoute exact path='/exercise/:id' component={EditExercise} />
-			</Switch>
-		</Layout>
+			</Layout>
+		</Switch>
 	);
 }
 

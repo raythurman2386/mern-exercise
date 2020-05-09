@@ -5,7 +5,7 @@ const Sidebar = () => {
 	const username = localStorage.getItem('username');
 
 	return (
-		<div className='pt-6 w-64 h-screen bg-gray-900 overflow-hidden hidden transition ease-in duration-700 md:flex md:flex-col flex-shrink-0'>
+		<div className='pt-6 w-64 bg-gray-900 overflow-hidden hidden transition ease-in duration-700 md:flex md:flex-col flex-shrink-0'>
 			{localStorage.getItem('token') ? (
 				<>
 					<h1 className='pb-2 text-center text-gray-200 text-xl'>
@@ -17,7 +17,7 @@ const Sidebar = () => {
 
 					<ul className='w-full text-center text-gray-400 justify-center'>
 						<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
-							<Link to='/exercise/create'>Add Exercise</Link>
+							<Link to='/exercises/create'>Add Exercise</Link>
 						</li>
 						<li className='mb-2 py-2 w-full hover:bg-gray-800 transition ease-in duration-300 cursor-pointer'>
 							View Profile

@@ -37,8 +37,7 @@ const CreateExercise = props => {
 	}
 
 	if (error) {
-		console.log(error);
-		return <h3>Something has went wrong</h3>;
+		console.error(error);
 	}
 
 	const handleSubmit = async e => {

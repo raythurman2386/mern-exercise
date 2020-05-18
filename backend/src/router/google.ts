@@ -4,14 +4,17 @@ import { generateToken } from '../generateToken';
 
 googleRouter.get(
   '/auth/google',
-  passport.authenticate('google', { scope: ['profile'] })
+  passport.authenticate('google', {
+    scope: ['profile'],
+    failureRedirect: `${process.env.REDIRECT_URL}/login`,
+  })
 );
 
 googleRouter.get(
   '/auth/google/callback',
   passport.authenticate('google', {
     passReqToCallback: true,
-    failureRedirect: '/login',
+    failureRedirect: `${process.env.REDIRECT_URL}/login`,
     session: false,
   }),
   (req: any, res: any) => {

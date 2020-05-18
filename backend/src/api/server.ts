@@ -6,7 +6,9 @@ import resolvers from '../resolvers';
 import { isProduction } from '../helpers';
 
 import '../auth/facebook-config';
+import '../auth/google-config';
 const facebook = require('../router/facebook');
+const google = require('../router/google');
 
 const app = express();
 
@@ -20,6 +22,7 @@ const apolloServer = new ApolloServer({
 });
 
 app.use('/', facebook);
+app.use('/', google);
 
 app.get('/', (_req, res) => {
   res.json({ message: 'Welcome to your Exercise Tracker API' });

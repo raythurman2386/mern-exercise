@@ -1,13 +1,13 @@
 import passport from 'passport';
 import { UserModel } from '../database/schema';
-const FacebookStrategy = require('passport-facebook');
+const GoogleStrategy = require('passport-google-oauth20');
 
 passport.use(
-  new FacebookStrategy(
+  new GoogleStrategy(
     {
-      clientID: process.env.FACEBOOK_CLIENT_ID,
-      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      callbackURL: `${process.env.CALLBACK_URL}/auth/facebook/callback`,
+      clientID: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      callbackURL: `${process.env.CALLBACK_URL}/auth/google/callback`,
     },
     async (
       _accessToken: string,

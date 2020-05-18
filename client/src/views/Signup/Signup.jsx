@@ -66,7 +66,9 @@ const Signup = props => {
 													fill-rule='evenodd'
 												/>
 											</svg> */}
-												Facebook
+												<a href='http://localhost:8000/auth/facebook'>
+													Facebook
+												</a>
 											</button>
 											<button
 												className='bg-white active:bg-gray-100 text-gray-800 font-normal px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs'
@@ -97,7 +99,7 @@ const Signup = props => {
 													/>
 												</g>
 											</svg> */}
-												Google
+												<a href='http://localhost:8000/auth/google'>Google</a>
 											</button>
 										</div>
 										<hr className='mt-6 border-b-1 border-gray-400' />

@@ -98,7 +98,7 @@ const Login = props => {
 													/>
 												</g>
 											</svg> */}
-												Google
+												<a href='http://localhost:8000/auth/google'>Google</a>
 											</button>
 										</div>
 										<hr className='mt-6 border-b-1 border-gray-400' />

@@ -6,10 +6,13 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 		return new URLSearchParams(useLocation().search);
 	};
 
+	let token = localStorage.getItem('token');
+
 	let queries = useQuery();
 
 	useEffect(() => {
-		const token = queries.get('query');
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		token = queries.get('query');
 		const user = queries.get('user');
 
 		if (token != null) {
@@ -26,11 +29,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 		<Route
 			{...rest}
 			render={props =>
-				localStorage.getItem('token') ? (
-					<Component {...props} />
-				) : (
-					<Redirect to='/' />
-				)
+				token != null ? <Component {...props} /> : <Redirect to='/' />
 			}
 		/>
 	);

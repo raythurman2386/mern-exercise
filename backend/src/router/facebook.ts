@@ -22,7 +22,7 @@ facebookRouter.get(
     res
       .status(200)
       .redirect(
-        `${process.env.REDIRECT_URL}/dashboard?query=${token}&id=${req.user.id}`
+        `${process.env.REDIRECT_URL}/exercises?query=${token}&user=${req.user.username}`
       );
   }
 );

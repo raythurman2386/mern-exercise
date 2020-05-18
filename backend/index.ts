@@ -1,16 +1,11 @@
 import 'dotenv/config';
 import app from './src/api/server';
 import mongoose from 'mongoose';
-import { setURI } from './src/helpers';
+import { connectToDatabase } from './src/database/connection';
 
 const port = process.env.PORT || 4000;
 
-mongoose.connect(setURI(), {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false,
-});
+connectToDatabase();
 
 mongoose.connection.once('open', () => {
   console.log(`Connection to MongoDB complete.`);

@@ -65,7 +65,7 @@ const Login = props => {
 													fill-rule='evenodd'
 												/>
 											</svg> */}
-												<a href='http://localhost:8000/auth/facebook'>
+												<a href='https://lift-track-mern.herokuapp.com/auth/facebook'>
 													Facebook
 												</a>
 											</button>
@@ -98,7 +98,9 @@ const Login = props => {
 													/>
 												</g>
 											</svg> */}
-												<a href='http://localhost:8000/auth/google'>Google</a>
+												<a href='https://lift-track-mern.herokuapp.com/auth/google'>
+													Google
+												</a>
 											</button>
 										</div>
 										<hr className='mt-6 border-b-1 border-gray-400' />

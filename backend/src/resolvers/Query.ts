@@ -1,28 +1,27 @@
-import User from '../models/user.model';
-import Exercise from '../models/exercise.model';
+import { UserModel, ExerciseModel } from '../database/schema';
 
 const welcome = () => {
   return 'Welcome to your exercise tracker';
 };
 
 const users = () => {
-  return User.find();
+  return UserModel.find();
 };
 
 const user = (_parent: any, args: { id: number }) => {
-  return User.findById(args.id);
+  return UserModel.findById(args.id);
 };
 
 const exercises = () => {
-  return Exercise.find();
+  return ExerciseModel.find();
 };
 
 const exercise = (_parent: any, args: { id: number }) => {
-  return Exercise.findById(args.id);
+  return ExerciseModel.findById(args.id);
 };
 
 const myExercises = (_parent: any, args: { username: string }) => {
-  return Exercise.find({ username: args.username });
+  return ExerciseModel.find({ username: args.username });
 };
 
 export default { welcome, users, user, exercises, exercise, myExercises };

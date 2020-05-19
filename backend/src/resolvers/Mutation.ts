@@ -1,12 +1,11 @@
 import bcrypt from 'bcryptjs';
-import User from '../models/user.model';
-import Exercise from '../models/exercise.model';
+import { UserModel, ExerciseModel } from '../database/schema';
 import { generateToken } from '../generateToken';
 
 const signup = async (_parent: any, args: SignupValues) => {
   const password = await bcrypt.hash(args.password, 12);
 
-  const newUser = new User({ ...args, password });
+  const newUser = new UserModel({ ...args, password });
 
   const user = await newUser.save();
 
@@ -19,7 +18,7 @@ const signup = async (_parent: any, args: SignupValues) => {
 };
 
 const login = async (_parent: any, args: LoginValues) => {
-  const [user]: any = await User.find({ email: args.email });
+  const [user]: any = await UserModel.find({ email: args.email });
   if (!user) {
     throw new Error('That user does not exist');
   }
@@ -38,7 +37,7 @@ const login = async (_parent: any, args: LoginValues) => {
 };
 
 const addExercise = async (_parent: any, args: AddExerciseValues) => {
-  const newExercise = new Exercise(args);
+  const newExercise = new ExerciseModel(args);
 
   const exercise = await newExercise.save();
 
@@ -46,15 +45,15 @@ const addExercise = async (_parent: any, args: AddExerciseValues) => {
 };
 
 const updateExercise = async (_parent: any, args: ExerciseValues) => {
-  const updatedExercise: any = await Exercise.findOneAndUpdate(
+  const updatedExercise: any = await ExerciseModel.findOneAndUpdate(
     { _id: args.id },
     args
   );
-  return Exercise.findById(updatedExercise._id);
+  return ExerciseModel.findById(updatedExercise._id);
 };
 
 const deleteExercise = async (_parent: any, args: { id: number }) => {
-  await Exercise.findByIdAndDelete(args.id);
+  await ExerciseModel.findByIdAndDelete(args.id);
   return 'Exercise Deleted';
 };
 

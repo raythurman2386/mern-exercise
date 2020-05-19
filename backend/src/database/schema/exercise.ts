@@ -1,8 +1,6 @@
-import mongoose from 'mongoose';
+import { model, Schema } from 'mongoose';
 
-const Schema = mongoose.Schema;
-
-const exerciseSchema = new Schema(
+const ExerciseSchema = new Schema(
   {
     username: { type: String, required: true },
     description: { type: String, required: true },
@@ -15,6 +13,6 @@ const exerciseSchema = new Schema(
   }
 );
 
-const Exercise = mongoose.model('Exercise', exerciseSchema);
+const ExerciseModel = model('Exercise', ExerciseSchema);
 
-export default Exercise;
+export { ExerciseModel };

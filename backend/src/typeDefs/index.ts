@@ -14,6 +14,8 @@ const typeDefs = gql`
     id: ID!
     username: String!
     email: String!
+    providerId: String
+    provider: String
     exercises: [Exercise]!
   }
 

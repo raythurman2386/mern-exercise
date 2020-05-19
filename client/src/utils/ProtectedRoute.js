@@ -16,7 +16,6 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 		const user = queries.get('user');
 
 		if (token != null) {
-			console.log('here');
 			localStorage.setItem('token', token);
 			localStorage.setItem('username', user);
 			return;
@@ -28,9 +27,7 @@ const ProtectedRoute = ({ component: Component, ...rest }) => {
 	return (
 		<Route
 			{...rest}
-			render={props =>
-				token != null ? <Component {...props} /> : <Redirect to='/' />
-			}
+			render={props => (token ? <Component {...props} /> : <Redirect to='/' />)}
 		/>
 	);
 };
